@@ -10,7 +10,7 @@ import (
 )
 
 type CreateProductRequest struct {
-	Name  string  `validate:"required,min=3,max=15"`
+	Name  string  `validate:"required,min=3,max=50"`
 	Price float32 `validate:"required"`
 }
 

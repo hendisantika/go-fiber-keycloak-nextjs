@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"go-fiber-keycloak-nextjs/api/handlers"
 	"go-fiber-keycloak-nextjs/api/middlewares"
@@ -19,9 +20,10 @@ func InitPublicRoutes(app *fiber.App) {
 	grp := app.Group("/api/v1")
 
 	identityManager := identity.NewIdentityManager()
+	fmt.Println("identityManager --> ", identityManager)
 	registerUseCase := usermgmtuc.NewRegisterUseCase(identityManager)
 
-	grp.Post("/user", handlers.RegisterHandler(registerUseCase))
+	grp.Post("/users", handlers.RegisterHandler(registerUseCase))
 }
 
 func InitProtectedRoutes(app *fiber.App) {

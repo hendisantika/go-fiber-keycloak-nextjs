@@ -2,12 +2,12 @@
     "ListenIP": "127.0.0.1",
     "ListenPort": "3005",
     "KeyCloak": {
-        "Realm": "my-demo",
+        "Realm": "PowerRanger",
         "BaseUrl": "http://localhost:8080",
         "RestApi": {
             "ClientId": "demo-backend",
-            "ClientSecret": "j1ajW7jjzs4jLshY9OlagOn2hrJ27AN1"
+            "ClientSecret": "ohwQzGxmp9MWskVw16SE1DcZxbHnNja9"
         },
-        "RealmRS256PublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxNjgeyGwhImULQhBFZTqGps1GE7u1ZZOVx4L0quSGEHoQPodhRbAiqZieqaLH4xU+I6XBYKNYgyro+4/Nn2/4uPnD23sDWil36EfkuNk6u3EC6JYfHa1cr6cLWUa53rnsk4rSz28Uc4SN8a7uSfHQzsGkeX1W1xKiwyaVO+RJOTNpb1nDxvlsZ8WkhI1WqX/EVjaLvpOia1pNeBCYWgNkbw5hdKTzvx7t+O+t48vD4vA/Q3PoofLAvXj+hDCfg+Uqe/kYUV24oFvRBYYJB2WWAD1DOfuN5BaXbI7clMk2lGzSWX8KPnUCcQOMDniiZAM2hbfRMATwPsJh6mrZcjtwwIDAQAB"
+        "RealmRS256PublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwNS+XeRguzMQGTeew20CwohnVuH/Dy5l5o3yIaBiI2MJWkm1xotiOk14PWE8Wp61fPk3CRUnI5s2Rj7H6bX2hZv9kP5go0MjEoTbN5QWs1kGXp7F5cZhobibfS5SrGa4vVqr4gGrbFjpOximL/WlNA/1GurmezTcniifAfV2dmySmEEBIz3IIT0+v3BhU93Z9Rkjsa8U9y1nslwfyKnQaGbMI+aAoe0RGldUaGxsPSKtp7tXCCXM9CuEJTeolpwxBThE1jRPgUFis9DcFRnoJrbFLYiD2qzI+5ZxwZ4dRy2EJlConIVJ7M6OLhKW9fwNL7kVfVrFh33JG8eeCcnKPwIDAQAB"
     }
 }

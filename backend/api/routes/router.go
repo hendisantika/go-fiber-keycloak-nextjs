@@ -1,14 +1,13 @@
 package routes
 
 import (
-	"demo-backend/api/handlers"
-	"demo-backend/api/middlewares"
-	"demo-backend/infrastructure/datastores"
-	"demo-backend/infrastructure/identity"
-	"demo-backend/use_cases/productsuc"
-	"demo-backend/use_cases/usermgmtuc"
-
 	"github.com/gofiber/fiber/v2"
+	"go-fiber-keycloak-nextjs/api/handlers"
+	"go-fiber-keycloak-nextjs/api/middlewares"
+	"go-fiber-keycloak-nextjs/infrastructure/datastores"
+	"go-fiber-keycloak-nextjs/infrastructure/identity"
+	"go-fiber-keycloak-nextjs/use_cases/productsuc"
+	"go-fiber-keycloak-nextjs/use_cases/usermgmtuc"
 )
 
 func InitPublicRoutes(app *fiber.App) {

@@ -2,7 +2,7 @@ package productsuc
 
 import (
 	"context"
-	"demo-backend/domain/entities"
+	"go-fiber-keycloak-nextjs/domain/entities"
 	"time"
 
 	"github.com/go-playground/validator/v10"

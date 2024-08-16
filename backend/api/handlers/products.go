@@ -2,12 +2,10 @@ package handlers
 
 import (
 	"context"
-
-	"demo-backend/domain/entities"
-	"demo-backend/use_cases/productsuc"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/pkg/errors"
+	"go-fiber-keycloak-nextjs/domain/entities"
+	"go-fiber-keycloak-nextjs/use_cases/productsuc"
 )
 
 type CreateProductUseCase interface {

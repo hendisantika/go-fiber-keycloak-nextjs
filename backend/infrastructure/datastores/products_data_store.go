@@ -1,7 +1,7 @@
 package datastores
 
 import (
-	"demo-backend/domain/entities"
+	"go-fiber-keycloak-nextjs/domain/entities"
 	"sort"
 	"sync"
 

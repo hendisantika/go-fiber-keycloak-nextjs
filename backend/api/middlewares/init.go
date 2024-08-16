@@ -2,9 +2,8 @@ package middlewares
 
 import (
 	"context"
-	"demo-backend/infrastructure/identity"
-	"demo-backend/shared/enums"
-
+	"go-fiber-keycloak-nextjs/infrastructure/identity"
+	"go-fiber-keycloak-nextjs/shared/enums"
 	"log"
 
 	"github.com/gofiber/fiber/v2"

@@ -1,7 +1,7 @@
 package productsuc
 
 import (
-	"demo-backend/domain/entities"
+	"go-fiber-keycloak-nextjs/domain/entities"
 )
 
 type ProductsDataStorer interface {

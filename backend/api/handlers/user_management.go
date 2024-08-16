@@ -2,11 +2,9 @@ package handlers
 
 import (
 	"context"
-
-	"demo-backend/use_cases/usermgmtuc"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/pkg/errors"
+	"go-fiber-keycloak-nextjs/use_cases/usermgmtuc"
 )
 
 type RegisterUseCase interface {

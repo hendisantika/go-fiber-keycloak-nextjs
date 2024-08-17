@@ -1,8 +1,7 @@
 "use client";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import React, { FormEvent } from "react";
-import { useEffect, useState } from "react";
+import {useSession} from "next-auth/react";
+import {useRouter} from "next/navigation";
+import React, {FormEvent, useEffect, useState} from "react";
 
 export default function CreateProduct() {
     const { data: session, status } = useSession();
@@ -69,20 +68,20 @@ export default function CreateProduct() {
 
                 <form onSubmit={handleSubmit} className="mt-6">
                     <div className="w-1/2">
-                        <label htmlFor="productName" className="text-2xl">
+                        <label htmlFor="productName" className="text-2xl text-white">
                             Product name:
                         </label>
                         <input
                             autoFocus
                             type="text"
                             id="productName"
-                            className="w-full p-1 text-black bg-gray-200 text-lg"
+                            className="w-full p-1 text-black bg-gray-200 text-lg text-white"
                             ref={productNameRef}
                             required
                         />
                     </div>
                     <div className="w-1/2 mt-2">
-                        <label htmlFor="price" className="text-2xl">
+                        <label htmlFor="price" className="text-2xl text-white">
                             Price:
                         </label>
                         <input

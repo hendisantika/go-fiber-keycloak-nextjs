@@ -36,7 +36,7 @@ export default async function Products() {
             return (
                 <main>
                     <SetDynamicRoute></SetDynamicRoute>
-                    <h1 className="text-4xl text-center">Products</h1>
+                    <h1 className="text-4xl text-center text-white">Products</h1>
                     <table className="border border-gray-500 text-lg ml-auto mr-auto mt-6">
                         <thead>
                             <tr>

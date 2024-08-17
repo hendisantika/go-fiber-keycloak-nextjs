@@ -1,9 +1,9 @@
-import {NextResponse} from "next/server";
-import {getAccessToken} from "../../../utils/sessionTokenAccessor";
-import {authOptions} from "../auth/[...nextauth]/route";
-import {getServerSession} from "next-auth";
+import { NextRequest, NextResponse } from "next/server";
+import { getAccessToken } from "../../../utils/sessionTokenAccessor";
+import { authOptions } from "../auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
-export async function POST(req) {
+export async function POST(req: NextRequest, res: NextResponse) {
     const session = await getServerSession(authOptions);
 
     if (session) {
@@ -23,13 +23,13 @@ export async function POST(req) {
 
         if (resp.ok) {
             const data = await resp.json();
-            return NextResponse.json({data}, {status: resp.status});
+            return NextResponse.json({ data }, { status: resp.status });
         }
 
         return NextResponse.json(
-            {error: await resp.text()},
-            {status: resp.status}
+            { error: await resp.text() },
+            { status: resp.status }
         );
     }
-    return NextResponse.json({error: "Unauthorized"}, {status: res.status});
+    return NextResponse.json({ error: "Unauthorized" }, { status: res.status });
 }

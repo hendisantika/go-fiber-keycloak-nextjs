@@ -1,15 +1,15 @@
 // this will refresh an expired access token, when needed
-import {encrypt} from "../../../../utils/encryption";
+import { encrypt } from "../../../../utils/encryption";
 import NextAuth from "next-auth";
 import KeycloakProvider from "next-auth/providers/keycloak";
 import jwt_decode from "jwt-decode";
 
-async function refreshAccessToken(token) {
+async function refreshAccessToken(token: any) {
     const resp = await fetch(`${process.env.REFRESH_TOKEN_URL}`, {
-        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
-            client_id: process.env.DEMO_FRONTEND_CLIENT_ID,
-            client_secret: process.env.DEMO_FRONTEND_CLIENT_SECRET,
+            client_id: process.env.DEMO_FRONTEND_CLIENT_ID as string,
+            client_secret: process.env.DEMO_FRONTEND_CLIENT_SECRET as string,
             grant_type: "refresh_token",
             refresh_token: token.refresh_token,
         }),
@@ -38,7 +38,7 @@ export const authOptions = {
     ],
 
     callbacks: {
-        async jwt({token, account}) {
+        async jwt({ token, account }: { token: any; account: any }) {
             const nowTimeStamp = Math.floor(Date.now() / 1000);
 
             if (account) {
@@ -54,21 +54,21 @@ export const authOptions = {
                 return token;
             } else {
                 // token is expired, try to refresh it
-                console.log("Token has expired. Will refresh...")
+                console.log("Token has expired. Will refresh...");
                 try {
                     const refreshedToken = await refreshAccessToken(token);
-                    console.log("Token is refreshed.")
+                    console.log("Token is refreshed.");
                     return refreshedToken;
                 } catch (error) {
                     console.error("Error refreshing access token", error);
-                    return {...token, error: "RefreshAccessTokenError"};
+                    return { ...token, error: "RefreshAccessTokenError" };
                 }
             }
         },
-        async session({session, token}) {
+        async session({ session, token }: { session: any; token: any }) {
             // Send properties to the client
             session.access_token = encrypt(token.access_token); // see utils/sessionTokenAccessor.js
-            session.id_token = encrypt(token.id_token);  // see utils/sessionTokenAccessor.js
+            session.id_token = encrypt(token.id_token); // see utils/sessionTokenAccessor.js
             session.roles = token.decoded.realm_access.roles;
             session.error = token.error;
             return session;
@@ -78,4 +78,4 @@ export const authOptions = {
 
 const handler = NextAuth(authOptions);
 
-export {handler as GET, handler as POST};
+export { handler as GET, handler as POST };

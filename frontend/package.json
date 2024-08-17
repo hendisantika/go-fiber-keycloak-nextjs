@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "autoprefixer": "10.4.14",
+    "cryptr": "^6.2.0",
+    "jwt-decode": "^3.1.2",
     "react": "^18",
     "react-dom": "^18",
     "next": "14.2.5"

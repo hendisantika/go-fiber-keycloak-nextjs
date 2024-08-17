@@ -9,3 +9,5 @@
 5. Navigate to the frontend: `cd frontend`
 6. Run Frontend project: `pnpm install && pnpm dev`
 7. Open your favorite browser: http://localhost:3000
+8. Navigate to docker folder: `cd docker`
+9. Run docker compose: `docker compose -f compose2.yml up`

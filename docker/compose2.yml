@@ -6,8 +6,7 @@ services:
       - --health-enabled=true
       - --import-realm
     volumes:
-      #      - ./keycloak:/opt/keycloak/data
-      - ./keycloak/keycloak.json:/opt/keycloak/data/import/keycloak.json
+      - ./keycloak/PowerRanger.json:/opt/keycloak/data/import/PowerRanger.json
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin

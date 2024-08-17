@@ -1,8 +1,8 @@
-import { getAccessToken } from "../../utils/sessionTokenAccessor";
-import { redirect } from "next/navigation";
-import { SetDynamicRoute } from "../../utils/setDynamicRoute";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
+import {getAccessToken} from "../../utils/sessionTokenAccessor";
+import {redirect} from "next/navigation";
+import {SetDynamicRoute} from "../../utils/setDynamicRoute";
+import {authOptions} from "../api/auth/[...nextauth]/route";
+import {getServerSession} from "next-auth";
 
 async function getAllProducts() {
     try {
@@ -54,13 +54,13 @@ export default async function Products() {
                         <tbody>
                             {products.map((p: any) => (
                                 <tr key={p.Id}>
-                                    <td className="p-1 border border-gray-500">
+                                    <td className="p-1 border border-gray-500 text-white">
                                         {p.Id}
                                     </td>
-                                    <td className="p-1 border border-gray-500">
+                                    <td className="p-1 border border-gray-500 text-white">
                                         {p.Name}
                                     </td>
-                                    <td className="p-1 border border-gray-500">
+                                    <td className="p-1 border border-gray-500 text-white">
                                         {p.Price}
                                     </td>
                                 </tr>

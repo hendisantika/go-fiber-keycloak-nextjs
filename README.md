@@ -90,6 +90,66 @@ multiple applications or services. By providing a centralized system for managin
 reduces the burden on individual applications to handle security and helps ensure consistent security practices across
 an organization.
 
+### Setting up with docker
+
+docker-compose.yml file
+
+```yaml
+services:
+  postgres:
+    image: postgres:16.4-alpine3.20
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    networks:
+      - keycloak_network
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0.2
+    command: start
+    environment:
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_HOSTNAME_STRICT_BACKCHANNEL: false
+      KC_HTTP_ENABLED: true
+      KC_HOSTNAME_STRICT_HTTPS: false
+      KC_HEALTH_ENABLED: true
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres/${POSTGRES_DB}
+      KC_DB_USERNAME: ${POSTGRES_USER}
+      KC_DB_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - postgres
+    networks:
+      - keycloak_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  keycloak_network:
+    driver: bridge
+```
+
+.env file
+
+```shell
+POSTGRES_DB=keycloak_db
+POSTGRES_USER=keycloak_db_user
+POSTGRES_PASSWORD=keycloak_db_user_password
+KEYCLOAK_ADMIN=admin
+KEYCLOAK_ADMIN_PASSWORD=passwo
+```
+
 ### Things todo list
 
 1. Clone this repository: `git clone https://github.com/hendisantika/go-fiber-keycloak-nextjs.git`

@@ -75,7 +75,7 @@ export default function CreateProduct() {
                             autoFocus
                             type="text"
                             id="productName"
-                            className="w-full p-1 text-black bg-gray-200 text-lg text-white"
+                            className="w-full p-1 text-black bg-gray-200 text-lg"
                             ref={productNameRef}
                             required
                         />
